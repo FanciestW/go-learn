@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"log"
+	"os"
+	"strings"
 
 	"example.com/greetings"
 	"rsc.io/quote"
@@ -15,9 +18,15 @@ func main() {
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
-	var message map[string]string
+	nameReader := bufio.NewReader(os.Stdin)
+	fmt.Print("What is your name: ")
+	name, _ := nameReader.ReadString('\n')
+	// convert CRLF to LF
+	name = strings.Replace(name, "\n", "", -1)
+
+	var message string
 	var error error
-	message, error = greetings.Hellos([]string{"William", "Alyson"})
+	message, error = greetings.Hello(name)
 
 	// If an error was returned, print it to the console and
 	// exit the program.
