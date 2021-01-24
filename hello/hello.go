@@ -15,9 +15,9 @@ func main() {
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
 
-	var message string
+	var message map[string]string
 	var error error
-	message, error = greetings.Hello("William")
+	message, error = greetings.Hellos([]string{"William", "Alyson"})
 
 	// If an error was returned, print it to the console and
 	// exit the program.
