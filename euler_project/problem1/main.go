@@ -9,5 +9,5 @@ func main() {
 			sum += i
 		}
 	}
-	fmt.Printf("Answer is: %d", sum)
+	fmt.Println(sum)
 }
